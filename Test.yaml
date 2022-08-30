@@ -4,20 +4,14 @@ name: Check add-on against Znuny manually
 
 # Controls when the workflow will run
 on:
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  workflow_call:
     inputs:
       version:
-        description: 'Znuny Version'
         required: true
-        default: '6_4'
-        type: choice
-        options:
-        - '6_0'
-        - '6_1'
-        - '6_2'
-        - '6_3'
-        - '6_4'
+        type: string
+      update:
+        required: true
+        type: string
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
