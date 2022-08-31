@@ -40,7 +40,7 @@ jobs:
       # check out latest Znuny relaise
       - uses: actions/checkout@v3
         with:
-          repository: tipue-dev/Znuny
+          repository: Znuny/Znuny
           ref: rel-${{ inputs.version }}
 
       # Checks-out the module into a new directory as to not overwrite the znuny code
