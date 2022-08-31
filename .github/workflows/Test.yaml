@@ -52,6 +52,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           path: mxcScripts
+          repository: tipue-dev/Addon-Scripts
 
       - name: Install dependencies
         run: |
