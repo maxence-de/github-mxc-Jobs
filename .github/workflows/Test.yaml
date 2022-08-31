@@ -121,7 +121,7 @@ jobs:
 
       - name: Update Package to new Framework and install
         run: |
-          perl scripts/UpdateFramework.pl
+          perl scripts/UpdateFramework.pl --framework-version ${{ inputs.version }}
 
       - name: Run UnitTests
         env:
