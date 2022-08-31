@@ -53,7 +53,8 @@ jobs:
         with:
           path: mxcScripts
           repository: tipue-dev/Addon-Scripts
-          token: ${{ secrets.CHECKOUTTOKEN }}
+          token: abcdefghijkl
+#          token: ${{ secrets.CHECKOUTTOKEN }}
 
       - name: Install dependencies
         run: |
