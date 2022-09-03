@@ -87,7 +87,6 @@ jobs:
             - Testes successfully on Znuny ${{ inputs.version }}
 
       - name: Archive screenshots from selenium
-        if: failure()
         uses: actions/upload-artifact@v3
         with:
           name: Download all selenium screenshots
