@@ -81,6 +81,8 @@ jobs:
           MYSQL_ROOT_PASSWORD: "secret"
           MYSQL_PASSWORD: "secret"
           MYSQL_DATABASE: "otrs"
+          CHECKOUTTOKEN: ${{ secrets.CHECKOUTTOKEN }}
+          VERSION: ${{ inputs.version }}
         
       # get module code into the right place and remove original tests
 #      - name: Run a multi-line script 2
