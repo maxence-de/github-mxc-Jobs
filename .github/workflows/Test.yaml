@@ -72,7 +72,7 @@ jobs:
             libencode-hanextra-perl libmail-imapclient-perl libtemplate-perl \
             libdatetime-perl libmoo-perl apache2 mariadb-client gnupg2 liblocale-po-perl \
             libhash-merge-perl \
-            cpanminus make gcc rsync
+            cpanminus make gcc rsync gh
 
       # get module code into the right place and remove original tests
       - name: Run a multi-line script 2
