@@ -136,7 +136,7 @@ jobs:
           su -c "bin/otrs.Console.pl Dev::UnitTest::Run ${TEST_OPTIONS}" - otrs
           
       # create branch
-      - name: bla
+      - name: Create new branch
         run: |
           cd mxcModule
           git config --global user.email "noreply@maxence.de"
@@ -146,6 +146,17 @@ jobs:
           git add -A
           git commit -m "update-rel_${{ inputs.version }}"
           git push --set-upstream origin update-rel_${{ inputs.version }}
+          
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.CHECKOUTTOKEN }}
+          path: mxcModule
+          title: 'Auto-generated update to Znuny ${{ inputs.version }}'
+          body: |
+            - Updated sopm
+            - Created opm
+            - Testes successfully on Znuny ${{ inputs.version }}
 
       - name: Archive screenshots from selenium
         if: failure()
