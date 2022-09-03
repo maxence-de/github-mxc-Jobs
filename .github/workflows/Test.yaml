@@ -37,6 +37,22 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Install dependencies
+        run: |
+          uname -a
+          apt-get update
+          apt-get upgrade -y
+          apt-get install -y libapache2-mod-perl2 libdbd-mysql-perl \
+            libtimedate-perl libnet-dns-perl libnet-ldap-perl \
+            libio-socket-ssl-perl libpdf-api2-perl libdbd-mysql-perl \
+            libsoap-lite-perl libtext-csv-xs-perl libjson-xs-perl \
+            libapache-dbi-perl libxml-libxml-perl libxml-libxslt-perl libspreadsheet-xlsx-perl \
+            libyaml-perl libarchive-zip-perl libcrypt-eksblowfish-perl \
+            libencode-hanextra-perl libmail-imapclient-perl libtemplate-perl \
+            libdatetime-perl libmoo-perl apache2 mariadb-client gnupg2 liblocale-po-perl \
+            libhash-merge-perl \
+            cpanminus make gcc rsync git
+
       # check out latest Znuny relaise
       - name: Check out latest Znuny relaise
         uses: actions/checkout@v3
@@ -57,22 +73,6 @@ jobs:
           path: mxcScripts
           repository: tipue-dev/Addon-Scripts
           token: ${{ secrets.CHECKOUTTOKEN }}
-
-      - name: Install dependencies
-        run: |
-          uname -a
-          apt-get update
-          apt-get upgrade -y
-          apt-get install -y libapache2-mod-perl2 libdbd-mysql-perl \
-            libtimedate-perl libnet-dns-perl libnet-ldap-perl \
-            libio-socket-ssl-perl libpdf-api2-perl libdbd-mysql-perl \
-            libsoap-lite-perl libtext-csv-xs-perl libjson-xs-perl \
-            libapache-dbi-perl libxml-libxml-perl libxml-libxslt-perl libspreadsheet-xlsx-perl \
-            libyaml-perl libarchive-zip-perl libcrypt-eksblowfish-perl \
-            libencode-hanextra-perl libmail-imapclient-perl libtemplate-perl \
-            libdatetime-perl libmoo-perl apache2 mariadb-client gnupg2 liblocale-po-perl \
-            libhash-merge-perl \
-            cpanminus make gcc rsync
 
       # get module code into the right place and remove original tests
       - name: Run a multi-line script 2
@@ -138,10 +138,9 @@ jobs:
       # create branch
       - name: bla
         run: |
-          apt-get install -y git
           cd mxcModule
           ls -la
-          ls -la .github
+          ls -la .git
           git status
 
       - name: Archive screenshots from selenium
