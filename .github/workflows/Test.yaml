@@ -70,7 +70,11 @@ jobs:
           token: ${{ secrets.CHECKOUTTOKEN }}
           
       - name: Run script
-        run: mxcScripts/run.sh
+        run: |
+          echo whoami
+          ls -l mxcScripts
+          chmod 777 +x mxcScripts/run.sh
+          mxcScripts/run.sh
         env:
           MYSQL_USER: "otrs"
           MYSQL_ROOT_PASSWORD: "secret"
