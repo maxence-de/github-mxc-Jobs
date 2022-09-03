@@ -8,9 +8,7 @@ on:
         type: string
 
 jobs:
-  # This workflow contains a single job called "Test"
-  Test:
-    # The type of runner that the job will run on
+  Run:
     runs-on: ubuntu-latest
     container: debian:10-slim
 
@@ -47,7 +45,7 @@ jobs:
             libhash-merge-perl libxml2-utils gnupg2 cpanminus make gcc git npm gettext \
             rsync
 
-      - name: Check out latest Znuny relaise of the given version
+      - name: Check out Znuny branch rel-${{ inputs.version }}
         uses: actions/checkout@v3
         with:
           repository: Znuny/Znuny
