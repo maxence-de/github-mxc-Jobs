@@ -141,7 +141,7 @@ jobs:
           apt-get install -y git
           cd mxcModule
           ls -la
-          ls -la .git
+          ls -la .github
           git status
 
       - name: Archive screenshots from selenium
