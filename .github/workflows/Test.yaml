@@ -27,7 +27,6 @@ jobs:
           MYSQL_PASSWORD: "secret"
           MYSQL_DATABASE: "otrs"
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Install dependencies
         run: |
