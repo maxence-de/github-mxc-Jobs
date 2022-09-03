@@ -73,7 +73,8 @@ jobs:
         run: |
           echo whoami
           ls -l mxcScripts
-          chmod 777 +x mxcScripts/run.sh
+          chmod 777 mxcScripts/run.sh
+          ls -l mxcScripts
           mxcScripts/run.sh
         env:
           MYSQL_USER: "otrs"
