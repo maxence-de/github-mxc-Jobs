@@ -72,7 +72,7 @@ jobs:
             libencode-hanextra-perl libmail-imapclient-perl libtemplate-perl \
             libdatetime-perl libmoo-perl apache2 mariadb-client gnupg2 liblocale-po-perl \
             libhash-merge-perl \
-            cpanminus make gcc rsync gh
+            cpanminus make gcc rsync
 
       # get module code into the right place and remove original tests
       - name: Run a multi-line script 2
@@ -135,13 +135,13 @@ jobs:
           su -c "bin/otrs.CheckSum.pl -a create" - otrs
           su -c "bin/otrs.Console.pl Dev::UnitTest::Run ${TEST_OPTIONS}" - otrs
           
-      # runs github commands (GitHub CLI)
-      - name: Create new branch and pull request
+      # create branch
+      - name: bla
         run: |
-          cd mxcModule 
-          gh pr create -B base_branch --title 'Merge branch_to_merge into base_branch' --body 'Created by Github action'
-        env:
-            GITHUB_TOKEN: ${{ secrets.CHECKOUTTOKEN }}
+          apt-get install -y git
+          cd mxcModule
+          ls -l
+          git status
 
       - name: Archive screenshots from selenium
         if: failure()
