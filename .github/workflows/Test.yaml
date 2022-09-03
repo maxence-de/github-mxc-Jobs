@@ -141,6 +141,7 @@ jobs:
           cd mxcModule
           git config --global user.email "noreply@maxence.de"
           git config --global user.name "Workflow"
+          git remote set-url origin https://x-access-token:${{ secrets.CHECKOUTTOKEN }}@github.com/$GITHUB_REPOSITORY
           git checkout -b update-rel_${{ inputs.version }}
           git add -A
           git commit -m "update-rel_${{ inputs.version }}"
