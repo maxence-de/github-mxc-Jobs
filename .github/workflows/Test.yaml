@@ -139,11 +139,8 @@ jobs:
       - name: bla
         run: |
           cd mxcModule
-          ls -la
-          ls -la .git
-          cat .git/config
-          git status
-          git branch
+          git config --global user.email "noreply@maxence.de"
+          git config --global user.name "Workflow"
           git checkout -b update-rel_${{ inputs.version }}
           git add -A
           git commit -m "update-rel_${{ inputs.version }}"
