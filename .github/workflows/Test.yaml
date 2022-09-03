@@ -141,7 +141,13 @@ jobs:
           cd mxcModule
           ls -la
           ls -la .git
+          cat .git/config
           git status
+          git branch
+          git checkout -b update-rel_${{ inputs.version }}
+          git add -A
+          git commit -m "update-rel_${{ inputs.version }}"
+          git push origin 
 
       - name: Archive screenshots from selenium
         if: failure()
