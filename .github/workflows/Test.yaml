@@ -59,7 +59,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           path: mxcScripts
-          repository: tipue-dev/Addon-Scripts
+          repository: maxence-de/github-mxc-WorkflowScripts
           token: ${{ secrets.CHECKOUTTOKEN }}
           
       - name: Run script
