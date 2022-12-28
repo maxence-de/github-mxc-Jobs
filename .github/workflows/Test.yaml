@@ -79,13 +79,13 @@ jobs:
           PACKAGE: ${{ inputs.package }}
           
       - name: Archive screenshots from selenium
+        if: always()
         uses: actions/upload-artifact@v3
         with:
           name: Download all selenium screenshots
           retention-days: 3
           path: /opt/otrs/var/httpd/htdocs/SeleniumScreenshots/*.png
           if-no-files-found: ignore
-        continue-on-error: true
 
       - name: Create pull request
         if: inputs.package == ''
