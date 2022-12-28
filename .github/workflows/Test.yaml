@@ -6,6 +6,9 @@ on:
       version:
         required: true
         type: string
+      package:
+        required: true
+        type: string
 
 jobs:
   Run:
@@ -73,6 +76,7 @@ jobs:
           MYSQL_DATABASE: "otrs"
           CHECKOUTTOKEN: ${{ secrets.CHECKOUTTOKEN }}
           VERSION: ${{ inputs.version }}
+          PACKAGE: ${{ inputs.package }}
           
       - name: Archive screenshots from selenium
         uses: actions/upload-artifact@v3
@@ -84,6 +88,7 @@ jobs:
         continue-on-error: true
 
       - name: Create pull request
+        if: ! github.event.inputs.package
         uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.CHECKOUTTOKEN }}
