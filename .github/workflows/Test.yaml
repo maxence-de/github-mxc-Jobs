@@ -73,6 +73,15 @@ jobs:
           MYSQL_DATABASE: "otrs"
           CHECKOUTTOKEN: ${{ secrets.CHECKOUTTOKEN }}
           VERSION: ${{ inputs.version }}
+          
+      - name: Archive screenshots from selenium
+        uses: actions/upload-artifact@v3
+        with:
+          name: Download all selenium screenshots
+          retention-days: 3
+          path: /opt/otrs/var/httpd/htdocs/SeleniumScreenshots/*.png
+          if-no-files-found: ignore
+        continue-on-error: true
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@v4
@@ -86,10 +95,3 @@ jobs:
             - Created opm
             - Testes successfully on Znuny ${{ inputs.version }}
 
-      - name: Archive screenshots from selenium
-        uses: actions/upload-artifact@v3
-        with:
-          name: Download all selenium screenshots
-          retention-days: 1
-          path: /opt/otrs/var/httpd/htdocs/SeleniumScreenshots/*.png
-          if-no-files-found: ignore
