@@ -86,6 +86,15 @@ jobs:
           retention-days: 3
           path: /opt/otrs/var/httpd/htdocs/SeleniumScreenshots/*.png
           if-no-files-found: ignore
+        
+      - name: scp pipelines
+        uses: cross-the-world/ssh-scp-ssh-pipelines@latest
+        with:
+          host: ${{ secrets.IMAGEURL }}
+          user: ${{ secrets.IMAGEUSER }}
+          pass: ${{ secrets.IMAGEPASS }}
+          scp: |
+            '/opt/otrs/var/httpd/htdocs/SeleniumScreenshots/*' => /var/www/images/
 
       - name: Create pull request
         if: inputs.package == ''
