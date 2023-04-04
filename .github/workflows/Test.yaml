@@ -90,7 +90,7 @@ jobs:
       - name: scp pipelines
         uses: cross-the-world/ssh-scp-ssh-pipelines@latest
         with:
-          host: ${{ secrets.IMAGEURL }}
+          host: ${{ secrets.IMAGEIP }}
           user: ${{ secrets.IMAGEUSER }}
           pass: ${{ secrets.IMAGEPASS }}
           port: ${{ secrets.IMAGEPORT }}
