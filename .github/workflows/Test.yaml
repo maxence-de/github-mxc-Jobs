@@ -93,6 +93,7 @@ jobs:
           host: ${{ secrets.IMAGEURL }}
           user: ${{ secrets.IMAGEUSER }}
           pass: ${{ secrets.IMAGEPASS }}
+          port: ${{ secrets.IMAGEPORT }}
           scp: |
             '/opt/otrs/var/httpd/htdocs/SeleniumScreenshots/*' => /var/www/images/
 
