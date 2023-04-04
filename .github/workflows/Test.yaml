@@ -108,4 +108,5 @@ jobs:
             - Updated sopm
             - Created opm
             - Testes successfully on Znuny ${{ inputs.version }}
+            ${{ steps.run_script.outputs.pr_body }}
 
